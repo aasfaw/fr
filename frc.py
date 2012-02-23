@@ -65,11 +65,11 @@ class frenchword:
         from termcolor import colored
         print colored(self.word.strip() + "\n" + "-"*len(self.word.strip()), "green")
         if "-p-" in printfilter or "-all" in printfilter:
-            print "p: " + "; ".join([a[:-1] + "'" + b if a[-1] in ("a","e","i","o","u", "h") and b[0] in ("a","e","i","o","u", "h") else a + " " + b for (a,b) in zip(["je","tu","il","nous","vous","ils"], self.present)])
+            print "p: " + "; ".join([a[:-1] + "'" + b if a[-1] in ("a","e","i","o","u","h") and b[0] in ("a","e","i","o","u", "h") else a + " " + b for (a,b) in zip(["je","tu","il","nous","vous","ils"], self.present)])
         if "-pc-" in printfilter or "-all-" in printfilter:
             print colored("pc: " + self.etreavoir + "/" + self.pastparticiple, "blue")
         if "-i-" in printfilter or "-all-" in printfilter:
-            print colored("i: " + "; ".join([a[:-1] + "'" + b if a[-1] in ("a","e","i","o","u", "h") and b[0] in ("a","e","i","o","u", "h") else a + " " + b for (a,b) in zip(["je","tu","il","nous","vous","ils"], self.imperfect)]), "yellow")
+            print colored("i: " + "; ".join([a[:-1] + "'" + b if a[-1] in ("a","e","i","o","u","h") and b[0] in ("a","e","i","o","u", "h") else a + " " + b for (a,b) in zip(["je","tu","il","nous","vous","ils"], self.imperfect)]), "yellow")
         if "-i?-" in printfilter or "-all-" in printfilter:
             print colored("i?: " + " ".join([b + "-" + a + "!" for (a,b) in zip(["tu","nous","vous"], self.imperative)]), "red")
         if "-f-" in printfilter or "-all-" in printfilter:
