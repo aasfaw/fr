@@ -136,16 +136,20 @@ if len(sys.argv) > 1:
         else:
             words = sys.argv[1:sys.argv.index("-sp")]
 
+    import os
+    _, termcolsize = os.popen('stty size', 'r').read().split() 
+    termcolsize = int(termcolsize)
+
     for word in words:
         wordcount += 1
-        print "--------------------------------------------------------------------------------------------------------------------------"
+        print "-"*termcolsize
         try:
             worddata = getworddata(word)
             worddata.printyourself(selectiveprint)
             yaycount += 1
         except:
             print "Could not conjugate the verb " + '"' + word + '".'
-    print "--------------------------------------------------------------------------------------------------------------------------"
+    print "-"*termcolsize
     print  "Conjugated " + str(yaycount) + "/" + str(wordcount) + " verbs in " + str(time.time() - start_time)[0:4] + " seconds."
 else:
     print "No verb(s) specified."
